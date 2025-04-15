@@ -24,7 +24,7 @@ export const AboutMeSection = () => {
           </div>
           <div>
             <img
-              src="./assets/me.png"
+              src="https://picsum.photos/500/300"
               alt="About Me"
               className="rounded-md shadow-md"
             />
