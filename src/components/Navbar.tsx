@@ -1,42 +1,46 @@
 "use client";
 
-import {useState, useEffect} from 'react';
-import {cn} from '@/lib/utils';
-import {Button} from '@/components/ui/button';
-import {Moon, Sun} from 'lucide-react';
-import {useTheme} from 'next-themes';
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const {theme, setTheme} = useTheme();
 
   useEffect(() => {
+    // Needed to avoid hydration mismatch
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    console.log('Theme actuel:', theme);
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[(-moz-appearance:none)]:bg-background/60 border-b">
-      <div className="container flex items-center justify-between py-2">
-        <div className="flex items-center space-x-2">
-          <span className="font-bold">Web3 Devfolio</span>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="sm">
-            {mounted && (
-              <span onClick={toggleTheme}>
-                {theme === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-              </span>
-            )}
-          </Button>
+    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur border-b border-border">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="text-xl font-bold tracking-tight">Web3 Devfolio</div>
+
+        <div className="flex items-center gap-2">
+          {mounted && (
+            <Button variant="ghost" size="icon" onClick={toggleTheme}>
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+          )}
+
           <Button variant="outline" size="sm">
             Connect Wallet
           </Button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };

@@ -8,7 +8,7 @@ import {Stack} from '@/components/ui/stack';
 
 export default function Home() {
   return (
-    <Stack>
+    <Stack className="w-full">
       <Navbar />
       <HeroSection />
       <ProjectsSection />

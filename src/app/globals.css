@@ -7,42 +7,44 @@ body {
 }
 
 @layer base {
+  /* 💡 Thème clair (par défaut) */
   :root {
-    --background: 240 10% 3.9%; /* Dark background */
-    --foreground: 0 0% 98%; /* Light text color */
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 210 100% 50%; /* Neon blue primary color */
-    --primary-foreground: 240 10% 3.9%;
-    --secondary: 240 10% 10%; /* Slightly lighter dark color for contrast */
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 10% 14.9%; /* Muted color for less important text */
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 210 100% 50%; /* Neon blue accent color */
-    --accent-foreground: 240 10% 3.9%;
-    --destructive: 0 62.8% 30.6%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 10% 14.9%; /* Dark border color */
-    --input: 240 10% 14.9%;
-    --ring: 210 100% 50%; /* Neon blue ring color */
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 210 100% 50%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --radius: 0.75rem; /* Slightly more rounded corners */
-    --sidebar-background: 240 10% 7%;
-    --sidebar-foreground: 0 0% 98%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
     --sidebar-primary: 210 100% 50%;
-    --sidebar-primary-foreground: 240 10% 3.9%;
-    --sidebar-accent: 240 10% 10%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 10% 14.9%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 10% 3.9%;
+    --sidebar-border: 240 5.9% 90%;
     --sidebar-ring: 210 100% 50%;
   }
 
+  /* 🌑 Thème sombre */
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -77,17 +79,17 @@ body {
     --sidebar-border: 240 10% 14.9%;
     --sidebar-ring: 210 100% 50%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
-/* Glassmorphism card style with neon glow */
+
+/* 🌫️ Glassmorphism card style with neon glow */
 .glassmorphism-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
@@ -99,17 +101,7 @@ body {
 }
 
 .glassmorphism-card:hover {
-  border: 1px solid rgba(57, 192, 237, 0.3); /* Neon blue on hover */
-  box-shadow: 0 4px 30px rgba(57, 192, 237, 0.2); /* Neon blue glow on hover */
-}
-
-/* Animated particle galaxy background (example, needs @tsparticles/react setup) */
-.particle-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  border: 1px solid rgba(57, 192, 237, 0.3);
+  box-shadow: 0 4px 30px rgba(57, 192, 237, 0.2);
 }
 
