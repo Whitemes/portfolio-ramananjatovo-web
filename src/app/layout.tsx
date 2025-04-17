@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
+import StarsBackground from '@/components/StarsBackground';
+
 // Fonts
 const geistSans = Geist({
   subsets: ['latin'],
@@ -43,8 +45,10 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-
-          <main className="flex min-h-screen flex-col w-full relative z-10">
+          <div className="fixed inset-0 -z-10">
+            <StarsBackground />
+          </div>
+          <main className="relative z-10 flex min-h-screen flex-col w-full">
             {children}
           </main>
 
