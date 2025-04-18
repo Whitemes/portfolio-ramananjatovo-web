@@ -1,0 +1,96 @@
+/* app/merci/page.module.css */
+
+/* On récupère d’abord les variables Tailwind : 
+   – hsl(var(--background)) pour le fond 
+   – hsl(var(--foreground)) pour le texte */
+   .container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: hsl(var(--background) / 1);
+    color: hsl(var(--foreground) / 1);
+    /* hérite de la police définie globalement */
+    font-family: inherit;
+  }
+  
+  .canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    z-index: 1;
+  }
+  
+  /* Texte “Merci” : on garde ton accent custom */
+  .thankYou {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    /* on peut aussi récupérer la variable accent si tu la préfères :
+       color: hsl(var(--accent) / 1); */
+    color: #64ffda;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards 0.5s;
+  }
+  
+  .message {
+    font-size: 1.5rem;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards 1s;
+  }
+  
+  .ctaButton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: hsl(var(--accent) / 1);
+    color: hsl(var(--background) / 1);
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards 1.5s;
+  }
+  
+  .ctaButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .thankYou {
+      font-size: 3rem;
+    }
+    .message {
+      font-size: 1.2rem;
+    }
+  }
+  
